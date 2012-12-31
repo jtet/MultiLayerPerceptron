@@ -18,10 +18,50 @@ read more at [http://en.wikipedia.org/wiki/Multilayer_perceptron](http://en.wiki
 
 ##Training
 
+```php
+for ($i = 0; $i < count($inputVectors); $i++){
+    $mlp->train($inputVectors[$i], $outcomes[$i);
+}
+```
+
 ##Test an Input
+
+```php
+echo $mlp->test($inputVector)? "True": "False";
+```
 
 ##Example
 
+```php
+$mlp = new \JTet\Perceptron\MultiLayerPerceptron(2);
+
+$i = 0;
+while($i < 100000)
+{
+    $input = array(0, 0);
+    $output = array(0);
+    $mlp->train($input, $output);
+
+    $input = array(0, 1);
+    $output = array(1);
+    $mlp->train($input, $output);
+
+    $input = array(1,0);
+    $output = array(1);
+    $mlp->train($input, $output);
+
+    $input = array(1,1);
+    $output = array(0);
+    $mlp->train($input, $output);
+
+    $i++;
+}
+
+echo $mlp->test(array(1,1))? "Incorrect\n": "Correct\n";
+echo $mlp->test(array(0,1))? "Correct\n": "Incorrect\n";
+echo $mlp->test(array(0,0))? "Incorrect\n": "Correct\n";
+echo $mlp->test(array(1,0))? "Correct\n": "Incorrect\n";
+```
 
 ##Getting MultiLayerPerceptron
 
