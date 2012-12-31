@@ -33,7 +33,7 @@ echo $mlp->test($inputVector)? "True": "False";
 ##Example
 
 ```php
-$mlp = new \JTet\Perceptron\MultiLayerPerceptron(2);
+$mlp = new \JTet\MultiLayerPerceptron\MultiLayerPerceptron(2);
 
 $i = 0;
 while($i < 100000)
